@@ -95,8 +95,14 @@ function compareObjects(obj1, obj2) {
  *    isEmptyObject({}) => true
  *    isEmptyObject({a: 1}) => false
  */
-function isEmptyObject(/* obj */) {
-  throw new Error('Not implemented');
+function isEmptyObject(obj) {
+  let res = true;
+  Object.keys(obj).forEach((prop) => {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+      res = false;
+    }
+  });
+  return res;
 }
 
 /**
